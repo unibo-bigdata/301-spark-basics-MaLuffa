@@ -1,4 +1,4 @@
-import org.apache.spark.sql.SparkSession
+/*import org.apache.spark.sql.SparkSession
 
 // spark2-submit --class ExampleWeather2 BD-301-spark-basics.jar
 object ExampleWeather2 extends App {
@@ -31,4 +31,4 @@ object ExampleWeather2 extends App {
     rddResult.saveAsTextFile("hdfs:/user/egallinucci/spark/avgTempPerMonth")
   }
 
-}
+}*/

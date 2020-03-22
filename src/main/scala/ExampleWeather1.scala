@@ -1,4 +1,4 @@
-/*
+
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkConf
 
@@ -14,12 +14,12 @@ object ExampleWeather1 extends App {
     (month, temp / 10)
   }
 
-  override def main(args: Array[String]): Unit = {
+    override def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("ExampleWeather Spark 1.6")
     val sc = new SparkContext(conf)
 
     // Create an RDD from the files in the given folder
-    val rddWeather = sc.textFile("hdfs:/bigdata/dataset/weather")
+    val rddWeather = sc.textFile("hdfs:/bigdata/dataset/weather-sample")
 
     //Coalesce to reduce the number of partitions(it is one per block by default, then parse records
     val rddWeatherKv = rddWeather.coalesce(12).map(x => parseWeatherLine(x))
@@ -31,8 +31,7 @@ object ExampleWeather1 extends App {
     val rddResult = rddAvgTempPerMonth.sortByKey().coalesce(1)
 
     //Save the RDD on HDFS; the directory should NOT exist
-    rddResult.saveAsTextFile("hdfs:/user/egallinucci/spark/avgTempPerMonth")
+    rddResult.saveAsTextFile("hdfs:/user/cloudera/spark/avgTempPerMonth")
   }
 
 }
-*/
